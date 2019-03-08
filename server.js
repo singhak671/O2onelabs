@@ -11,6 +11,10 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(cors());
 
+app.get('/', function(request, response){
+    response.sendfile('index.html');
+});
+
 app.use('/api/v1', require('./routes/userRoute'));
 
 mongoose.connect('mongodb://localhost/o2onelabs', (err, connect) => {
